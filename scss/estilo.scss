@@ -1,0 +1,587 @@
+// GOOGLE FONTS
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito+Sans&display=swap');
+
+// VARIABLES
+
+//Fuentes, texto
+$montserrat: 'Montserrat', sans-serif;
+$naruto-sans: 'Nunito Sans', sans-serif;
+
+$texto-gris: #BCBCBC;
+$placeholder-p: #787878;
+$color-footer: #141414;
+$negro: #191919;
+
+//Colores
+
+$fondo-gris: #E9E9E9;
+$blanco: #ffffff;
+$celeste: #10C9C3;
+
+
+// MIXINS
+
+@mixin texto-titulo {
+    color: $negro;
+    font-weight: bold;
+    font-family: $montserrat;
+}
+
+@mixin boton {
+    text-transform: uppercase;
+    color: $blanco;
+    background-color: $celeste;
+    font-family: $montserrat;
+    font-size: 12px;
+    width: 180px;
+    height: 54px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+@mixin uppercase {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: $montserrat;
+    color: $negro;
+}
+
+@mixin naruto-sans {
+    color: $texto-gris;
+    font-size: 16px;
+    font-family: $naruto-sans;
+    line-height: 28px;
+}
+
+@mixin alpha-negro {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+@mixin alpha-celeste {
+    background-color: rgba($celeste, 0.5);
+}
+
+@mixin linea {
+    background-color: $celeste;
+    height: inherit;
+}
+
+@mixin overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    display: flex;
+    color: #fff;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.3s;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+@mixin flex-center {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin formulario {
+    padding: 24px 120px 24px 30px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    color: $placeholder-p;
+    font-family: $naruto-sans;
+}
+
+// MEDIA
+@media only screen and (min-width: 800px){
+    .logo {
+        padding: 90px 0;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+.logo {
+    padding: 40px 0;
+}
+
+.img-amelia{
+    min-height: 250px;
+}
+    
+.carousel-inner {
+    img {
+    min-height : 100px;
+    max-height : 200px;
+    width : 100%;
+    } 
+    .carousel-item .carousel-caption {
+        h2 {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 36px;
+            margin-bottom: 24px;
+        }
+        h4 {
+            color: #fff;
+            font-size: 12px;
+            margin-bottom: 110px;
+        }
+    }
+}
+.carousel-indicators{
+    display: flex;
+    align-items: center;
+    li {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        &.active {
+            width: 10px;
+            height: 10px;
+        }
+    }
+}
+
+}
+
+
+// GENERAL
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* Márgenes top */ 
+.topmargin {
+    &-xs {
+        margin-top: 15px;
+    }
+
+    &-sm {
+        margin-top: 25px;
+    }
+    &-md {
+        margin-top: 55px;
+    }
+    &-lg {
+        margin-top: 90px;
+    }
+}
+
+body {
+    font-family: $montserrat;
+}
+
+/* Ajustes Bootstrap */ 
+
+.row {
+    margin:auto; /* Bootstrap le asigna un margen de 15px a la derecha e izquierda a "row" por lo que causa problemas y hace que sobrepase los container-fluid y la página tenga un scroll lateral. "margin: auto" lo soluciona. */
+}
+
+.container-fluid {
+    padding:0;
+}
+
+/* Textos */
+
+h1 {
+    @include texto-titulo;
+    font-size: 38px;
+    line-height: 48px;
+}
+
+h2 {
+    @include texto-titulo;
+    font-size: 30px;
+    line-height: 60px;
+
+}
+
+h3 {
+    @include texto-titulo;
+    font-size: 18px;
+    color: #fff;
+    font-weight:500;
+}
+
+h4 {
+    @include uppercase;
+    color: $negro;
+}
+
+p {
+    @include naruto-sans;
+    color: $placeholder-p;
+    margin: 25px 0 40px;
+    font-size: 18px;
+}
+
+nav a {
+    @include uppercase;
+    &:hover {
+        color: $celeste;
+    }
+    margin: 15px 10px;
+}
+
+.boton {
+    @include boton;
+}
+ul.navbar-nav.ml-auto {
+    padding: 0;
+}
+/* Hero */
+
+#hero {
+    background-image: url(../img/imagehere.png);
+    background-size: cover;
+    background-position: center center;
+    min-height: 670px;
+    .direita {
+        padding:140px 50px 140px;
+        }
+}
+
+/* About us */
+
+#about-us {
+    min-height: 420px;
+    display:flex;
+    align-items: center;
+    p {
+        padding: 0 19%;
+    }
+}
+
+/* Progress Skills */ 
+
+#skills {
+    display: flex;
+    align-items: center;
+    min-height: 570px;
+    background-color: #F8F9F9;
+    h4 {
+        font-weight: bold;
+        margin: 30px 0 15px;
+    }
+    .linea {
+        display: grid;
+        height: 4px;
+        width: 500px;
+        min-width: 30%;
+        max-width: 100%;
+        background: #D8D8D8;
+        .color-1 {
+            @include linea;
+            width: 75%;
+        }
+        .color-2 {
+            @include linea;
+            width: 90%;
+        }
+        .color-3 {
+            @include linea;
+            width: 65%;
+        }
+    }
+    .imagen-skills {
+        background-image: url(../img/200-683x570.jpg);
+        background-size: contain;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* Barra azul */ 
+
+#chocapic {
+    background-color: $celeste;
+    .logo {
+        img {
+            width: 48px;
+            height: auto;
+            margin-right: 30px;
+        }
+        span {
+            font-size: 18px;
+            font-weight: bold;
+            color: $blanco;
+        }
+        h4 {
+            color: $blanco;
+            line-height: 24px;
+            margin: 0;
+        }
+    }
+}
+
+/* Portafolio */ 
+
+
+.portafolio {
+    .fondo-texto {
+        background-color: #f5f5f5;
+        width: 100%;
+        padding: 42px 0 42px;
+    }
+    h4, a{
+        color: #8E8E8E;
+        font-weight: bold;
+        &:hover {
+            color: $negro;
+            text-decoration: none;
+        }
+        }
+    .col-md-3 {
+        padding:0;
+    }
+    .portafolio-contenedor {
+        position: relative;
+        overflow: hidden;
+        .imagen-portafolio {
+            width: 100%;
+        }
+        .overlay-portafolio {
+            @include overlay;
+            background: rgba(0, 0, 0, 0.8);
+            a {
+                color: white;
+            }
+        }
+        .overlay-portafolio2 {
+            @include overlay;
+            background: rgba($celeste, 0.8);
+            a {
+                color: white;
+            }
+        }
+
+        .texto-portafolio{
+            font-size: 50px;
+            color: white;
+        }
+    }
+}
+
+/* Work process */
+
+#work-process {
+    p {
+        padding: 0 24%;
+    }
+    video {
+        width: 100%;
+        height: auto;
+        margin-bottom: 100px;
+    }
+}
+
+/* Services */
+
+#services {
+    .container {
+        display:flex;
+        min-height: 535px;
+        flex-direction: column;
+
+    }
+    p {
+        font-size: 16px;
+        color: #656565;
+        margin: 0;
+    }
+    .servicio {
+        align-content: center;
+        img {
+            max-width: 48px;
+            margin: 25px 0 25px;
+        }
+    }
+}
+
+/* Caroussel */
+
+.carousel-inner {
+    img {
+    min-height : 300px;
+    max-height : 500px;
+    width : 100%;
+    } 
+    .carousel-item .carousel-caption {
+        h2 {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 36px;
+            margin-bottom: 24px;
+        }
+        h4 {
+            color: #fff;
+            font-size: 12px;
+            margin-bottom: 110px;
+        }
+    }
+}
+.carousel-indicators{
+    display: flex;
+    align-items: center;
+    li {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        &.active {
+            width: 10px;
+            height: 10px;
+        }
+    }
+}
+
+.logos{
+    margin-bottom: 55px;
+    img {
+        margin: 15px 5px 15px 5px;
+        min-width: 5%;
+        min-height: auto;
+}
+}
+
+/* Formulario */
+#formulario, #contact{
+    p {
+        padding: 0 20% 0;
+    }
+    .form-control {
+        @include formulario;
+    }
+    form {
+        display:inline-block;
+    }
+    .btn {
+        margin-bottom: 100px;
+    }
+    input::placeholder {
+        overflow:visible;
+    }
+}
+
+/* Footer */
+footer {
+    padding: 100px 0 40px;
+    background-color: #141414;
+    ul, a, p {
+        text-align: left;
+        color: $texto-gris;
+        text-decoration: none;
+        @include naruto-sans;
+        font-size: 15px;
+        line-height: 24px;
+    }
+    a:hover {
+        text-decoration: none;
+        color: $blanco;
+    }
+}
+
+/* Breakfast */ 
+
+#breakfast{
+    h2 {
+        margin: 50px 50px;
+    }
+    span{
+        color: #000;
+        font-weight: bold;
+        padding-right: 5px;
+    }
+    p {
+        line-height: 24px;
+        margin: 50px 50px;
+    }
+    .lista {
+        margin-bottom: 60px;
+            p {
+            margin: 10px 50px;
+            }
+    }
+}
+
+#contact {
+    h2 {
+        margin: 50px 0 30px;
+    }
+    span{
+        color: #000;
+        font-weight: bold;
+        padding-right: 5px;
+    }
+    p {
+        line-height: 24px;
+        font-size: 16px;
+        padding:0;
+    }
+    .lista {
+        margin-bottom: 60px;
+            p {
+            margin: 10px 0;
+            font-size: 16px;
+            padding:0;
+            }
+    }
+}
+
+iframe {
+    width: 1170px;
+    height: 470px;
+    margin-bottom: 90px;
+}
+
+.img-amelia {
+
+    background-image: url(../img/anmelia.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    max-height:350px;
+    .col-12 {
+        margin-bottom: 100px;
+    }
+    h2 {
+        color: $blanco;
+    }
+    p {
+        color: $blanco;
+        font-size: 18px;
+        padding: 0 30%;
+    }
+}
+
+.fondo-amelia {
+    background-image: url(../img/fondo-about.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left left;
+    img {
+        margin-bottom: 100px;
+    }
+}
+
+#need-a-project {
+    p {
+        padding: 0 10%;
+    }
+    button {
+        margin-bottom: 90px;
+    }
+}
